@@ -3,9 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+ <title>Formulario de Notas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+
+  <div class="form-card">
+    <h1>Formulario de Notas</h1>
+
+    <form method="POST">
+      <div class="campo">
+        <label for="nota1">Nota 1:</label>
+        <input type="number" id="nota1" name="nota1" min="10" max="70" step="0.1" required>
+      </div>
+
+      <div class="campo">
+        <label for="nota2">Nota 2:</label>
+        <input type="number" id="nota2" name="nota2" min="10" max="70" step="0.1" required>
+      </div>
+
+      <div class="campo">
+        <label for="nota3">Nota 3:</label>
+        <input type="number" id="nota3" name="nota3" min="10" max="70" step="0.1" required>
+      </div>
+
+      <div class="campo">
+        <label for="asistencia">Asistencia (%):</label>
+        <input type="number" id="asistencia" name="asistencia" min="0" max="100" step="1" required>
+      </div>
+
+      <button type="submit" class="btn-enviar">Enviar</button>
+    </form>
+
+    {% if promedio is not none %}
+      <div class="resultado">
+        <p>Promedio: {{ promedio }}</p>
+        <p>Estado: {{ estado }}</p>
+      </div>
+    {% endif %}
+  </div>
 
 </body>
 </html>
