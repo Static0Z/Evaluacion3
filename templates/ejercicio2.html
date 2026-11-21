@@ -3,9 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+ <title>Formulario de Notas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+
+  <form method="POST">
+    <div class="campo">
+      <label for="nombre1">Nombre 1:</label>
+      <input type="text" id="nombre1" name="nombre1" required>
+    </div>
+
+    <div class="campo">
+      <label for="nombre2">Nombre 2:</label>
+      <input type="text" id="nombre2" name="nombre2" required>
+    </div>
+
+    <div class="campo">
+      <label for="nombre3">Nombre 3:</label>
+      <input type="text" id="nombre3" name="nombre3" required>
+    </div>
+
+    <button type="submit" class="boton">Enviar</button>
+
+    {% if resultado %}
+      <p>{{ resultado }}</p>
+    {% endif %}
+  </form>
+
+  <footer>
+    <a href="{{ url_for('index') }}"class="boton">Volver</a>
+  </footer>
 
 </body>
 </html>
