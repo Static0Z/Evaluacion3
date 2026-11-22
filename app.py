@@ -1,11 +1,16 @@
 from flask import Flask, render_template,request
+
 app = Flask(__name__)
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
 def ejercicio1():
     return render_template('ejercicio1.html')
+
 @app.route('/ejercicio1', methods=['GET', 'POST'])
+
 def ejercicio1():
     promedio = None
     estado = None
@@ -26,9 +31,28 @@ def ejercicio1():
     return render_template('ejercicio1.html', promedio=promedio, estado=estado)
 
 
-@app.route('/ejercicio2')
+@app.route("/ejercicio2", methods=["GET", "POST"])
+
 def ejercicio2():
-    return render_template('ejercicio2.html')
+    nombre_mayor = None
+    cantidad = None
+
+
+    if request.method == "POST":
+        nombre1 = request.form["nombre1"].strip()
+        nombre2 = request.form["nombre2"].strip()
+        nombre3 = request.form["nombre3"].strip()
+
+        nombres = [nombre1, nombre2, nombre3]
+        nombre_mayor = max(nombres, key=len)
+        cantidad = len(nombre_mayor)
+
+
+    return render_template(
+        "ejercicio2.html",
+        nombre_mayor=nombre_mayor,
+        cantidad=cantidad
+    )
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Formulario de Notas</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
 
@@ -26,13 +26,14 @@
 
     <button type="submit" class="boton">Enviar</button>
 
-    {% if resultado %}
-      <p>{{ resultado }}</p>
+  {% if nombre_mayor %}
+      <p>El nombre con mayor cantidad de caracteres es : {{ nombre_mayor }}</p>
+      <p>El nombre tiene : {{ cantidad }} Caracteres</p>
     {% endif %}
   </form>
 
   <footer>
-    <a href="{{ url_for('index') }}"class="boton">Volver</a>
+    <a href="/" class="boton">Volver</a>
   </footer>
 
 </body>
